@@ -1,6 +1,7 @@
 package com.oyp.sort;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -54,6 +55,7 @@ public class ChooseCountryOrRegionActivity extends Activity {
 
     private ISortStrategy sortStrategy;
 
+    private ProgressDialog progressDialog = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +70,7 @@ public class ChooseCountryOrRegionActivity extends Activity {
     }
 
     private void initData() {
+        progressDialog = ProgressDialog.show(this, "Loading...", "正在加载测试数据...");
         sideBar.setVisibility(View.GONE);
         Observable.just("")
                 .map(new Func1<String, List<CountryOrRegion>>() {
@@ -146,8 +149,16 @@ public class ChooseCountryOrRegionActivity extends Activity {
                         //设置 侧边栏需要展示的列表
                         sideBar.setB(sortStrategy.getSideBarSortShowItemArray(mSourceDateList, ChooseCountryOrRegionActivity.this));
                         sideBar.setVisibility(View.VISIBLE);
+
+                        closeDialog();
                     }
                 });
+    }
+
+    private void closeDialog() {
+        if (progressDialog != null) {
+            progressDialog.cancel();
+        }
     }
 
     public void initView() {
