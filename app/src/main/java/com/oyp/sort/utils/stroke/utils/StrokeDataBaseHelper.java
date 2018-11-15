@@ -32,7 +32,7 @@ public class StrokeDataBaseHelper extends SQLiteOpenHelper {
     public final static String COLUMN_CHINESE = "CHINESE";
     public final static String COLUMN_SUM = "SUM";
     public final static String COLUMN_CODEPOINTAT = "codePointAt";
-    //The Android's default system path of your application database.
+    //todo 这里改为你自己的项目的数据库的存放路径
     private final static String DB_PATH = "/data/data/com.oyp.sort/databases/";
     //数据库名
     private final static String DB_NAME = "ChinessStroke.db";
