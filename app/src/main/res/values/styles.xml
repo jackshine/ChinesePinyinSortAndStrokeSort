@@ -1,0 +1,56 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <declare-styleable name="LargeTitleBarView">
+        <!--中心标题文本、字体、颜色-->
+        <attr name="subTitleText" format="string"/>
+        <attr name="titleText"/>
+        <attr name="titleTextSize"/>
+        <attr name="titleTextColor"/>
+        <!--左为tv时文本、字体、颜色-->
+        <attr name="leftText"/>
+        <attr name="leftTextSize"/>
+        <attr name="leftTextColor"/>
+        <!--左为iv时的src-->
+        <attr name="leftImageViewDrawable"/>
+        <!--tip iv时的src-->
+        <attr name="tipSrc" format="reference|color"/>
+        <!--tip文本-->
+        <attr name="tipText" format="string"/>
+        <!--右为tv时文本、字体、颜色-->
+        <attr name="rightText"/>
+        <attr name="rightTextSize"/>
+        <attr name="rightTextColor"/>
+        <!--右为iv时的src-->
+        <attr name="rightImageViewDrawable"/>
+        <!--标题栏的背景色-->
+        <attr name="titleBarViewBackground"/>
+        <!--是否右底部分割线的开关-->
+        <attr name="isNeedSplitLine"/>
+        <!--状态栏填充部分的背景色-->
+        <attr name="statusDrawable"/>
+
+        <attr name="titleGravity" format="enum">
+            <enum name="left" value="0"/>
+            <enum name="center" value="1"/>
+            <enum name="right" value="2"/>
+        </attr>
+    </declare-styleable>
+</resources>

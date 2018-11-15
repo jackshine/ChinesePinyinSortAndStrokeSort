@@ -1,0 +1,4 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/ic_back_black_unpress" android:state_pressed="false" />
+    <item android:drawable="@drawable/ic_back_black_press" android:state_pressed="true" />
+</selector>

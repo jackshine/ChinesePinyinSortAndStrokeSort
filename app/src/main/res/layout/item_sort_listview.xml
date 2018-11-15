@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+    <!-- 英文首字母 或者显示汉字笔画数 -->
+    <TextView
+        android:id="@+id/sortTitle"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:background="#f5f5f5"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"
+        android:textColor="#888888"
+        tools:text="A" />
+
+    <!--地区名称-->
+    <TextView
+        android:id="@+id/country_region_name"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@id/sortTitle"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="16dp"
+        android:gravity="center_vertical"
+        android:textColor="#222222"
+        android:textSize="16sp"
+        tools:text="中国" />
+
+    <!-- 地区代码 -->
+    <TextView
+        android:id="@+id/areaCode"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@id/sortTitle"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="50dp"
+        android:gravity="center_vertical"
+        android:textColor="#888888"
+        android:textSize="16sp"
+        tools:text="+86" />
+
+    <!--item分割线-->
+    <View
+        android:id="@+id/area_split_line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@id/country_region_name"
+        android:layout_marginLeft="16dp"
+        android:background="#dfdfdf" />
+</RelativeLayout>

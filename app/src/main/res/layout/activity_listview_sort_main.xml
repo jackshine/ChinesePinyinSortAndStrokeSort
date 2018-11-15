@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <!-- 区域列表和侧边滑动栏-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!-- 列表 去掉分割线和滑动条-->
+        <ListView
+            android:id="@+id/country_lvcountry"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:divider="@null"
+            android:scrollbars="none" />
+
+        <TextView
+            android:id="@+id/dialog"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:background="@drawable/sortlistview_sidebar_background"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="30.0dp"
+            android:visibility="invisible" />
+
+        <!-- 侧边滑动栏 -->
+        <com.oyp.sort.widget.SideBar
+            android:id="@+id/sidrbar"
+            android:layout_width="30.0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="right|center" />
+    </FrameLayout>
+</LinearLayout>

@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resources>
+
+    <!--Login globalization starts-->
+
+
+    <string name="GM">Gambia</string>
+
+    <string name="CG">Kongo</string>
+
+    <string name="GE">Georgia</string>
+
+    <string name="CO">Kolombia</string>
+
+    <string name="CR">Kosta Rika</string>
+
+    <string name="CU">Kuba</string>
+
+    <string name="GY">Guyana</string>
+
+    <string name="KZ">Kazakhstan</string>
+
+    <string name="HT">Haiti</string>
+
+    <string name="KR">Korea</string>
+
+    <string name="NL">Belanda</string>
+
+    <string name="HN">Honduras</string>
+
+    <string name="GT">Guatemala</string>
+
+    <string name="VE">Venezuela</string>
+
+    <string name="BN">Brunei darussalam</string>
+
+    <string name="UG">Uganda</string>
+
+    <string name="UA">Ukraina</string>
+
+    <string name="UY">Uruguay</string>
+
+    <string name="UZ">Uzbekistan</string>
+
+    <string name="DJ">Djibouti</string>
+
+    <string name="KG">Kirgistan</string>
+
+    <string name="GN">Guinea</string>
+
+    <string name="GH">Ghana</string>
+
+    <string name="CA">Kanada</string>
+
+    <string name="GA">Gabon</string>
+
+    <string name="KH">Kamboja</string>
+
+    <string name="CZ">Republik Cheska</string>
+
+    <string name="ZW">Zimbabwe</string>
+
+    <string name="ES">Spanyol</string>
+
+    <string name="GR">Yunani</string>
+
+    <string name="HK">Hongkong(China)</string>
+
+    <string name="SG">Singapura</string>
+
+    <string name="NZ">Selandia baru</string>
+
+    <string name="HU">Hungaria</string>
+
+    <string name="SY">Syria</string>
+
+    <string name="CM">Kamerun</string>
+
+    <string name="QA">Qatar</string>
+
+    <string name="KW">Kuwait</string>
+
+    <string name="KE">Kenya</string>
+
+    <string name="CK">Kepulauan Cook</string>
+
+    <string name="JM">Jamaika</string>
+
+    <string name="AM">Armenia</string>
+
+    <string name="YE">Yaman</string>
+
+    <string name="IT">Italia</string>
+
+    <string name="IQ">Irak</string>
+
+    <string name="IR">Iran</string>
+
+    <string name="IL">Israel</string>
+
+    <string name="IN">India</string>
+
+    <string name="ID">Indonesia</string>
+
+    <string name="GB">Inggris</string>
+
+    <string name="JO">Jordan</string>
+
+    <string name="VN">Vietnam</string>
+
+    <string name="LV">Latvia</string>
+
+    <string name="LS">Lesotho</string>
+
+    <string name="LA">Laos</string>
+
+    <string name="LB">Lebanon</string>
+
+    <string name="LR">Liberia</string>
+
+    <string name="LY">Libya</string>
+
+    <string name="LT">Lituania</string>
+
+    <string name="LI">Liechtenstein</string>
+
+    <string name="LU">Luksemburg</string>
+
+    <string name="RO">Rumania</string>
+
+    <string name="ZM">Zambia</string>
+
+    <string name="TD">Chad</string>
+
+    <string name="GI">Gibraltar</string>
+
+    <string name="CL">Chili</string>
+
+    <string name="CF">Republik Afrika Tengah</string>
+
+    <string name="CN">China</string>
+
+    <string name="MG">Madagaskar</string>
+
+    <string name="MV">Maladewa</string>
+
+    <string name="MT">Malta</string>
+
+    <string name="MW">Malawi</string>
+
+    <string name="MY">Malaysia</string>
+
+    <string name="ML">Mali</string>
+
+    <string name="MU">Mauritius</string>
+
+    <string name="US">Amerika Serikat</string>
+
+    <string name="MN">Mongolia</string>
+
+    <string name="BD">Bangladesh</string>
+
+    <string name="MM">Nyanmar</string>
+
+    <string name="MD">Moldova</string>
+
+    <string name="MA">Maroko</string>
+
+    <string name="MC">Monako</string>
+
+    <string name="MZ">Mozambik</string>
+
+    <string name="MX">Meksiko</string>
+
+    <string name="NA">Namibia</string>
+
+    <string name="ZA">Afrika Selatan</string>
+
+    <string name="NR">Nauru</string>
+
+    <string name="NI">Nikaragua</string>
+
+    <string name="NP">Nepal</string>
+
+    <string name="NE">Niger</string>
+
+    <string name="NG">Nigeria</string>
+
+    <string name="NO">Norwegia</string>
+
+    <string name="AL">Albania</string>
+
+    <string name="DZ">Aljazair</string>
+
+    <string name="AF">Afghanistan</string>
+
+    <string name="AR">Argentina</string>
+
+    <string name="AE">Uni Emirat Arab</string>
+
+    <string name="OM">Omna</string>
+
+    <string name="AZ">Azerbaijan</string>
+
+    <string name="IE">Irlandia</string>
+
+    <string name="EG">Mesir</string>
+
+    <string name="ET">Etiopia Hongaria</string>
+
+    <string name="EE">Estonia</string>
+
+    <string name="AD">Andorra</string>
+
+    <string name="AO">Angola</string>
+
+    <string name="AU">Australia</string>
+
+    <string name="AT">Austria</string>
+
+    <string name="MO">Macao(China)</string>
+
+    <string name="PG">Papua Nugini</string>
+
+    <string name="BS">Bahama</string>
+
+    <string name="PK">Bassin</string>
+
+    <string name="PY">Paraguay</string>
+
+    <string name="BH">Bahrain</string>
+
+    <string name="PA">Panama</string>
+
+    <string name="BR">Brazil</string>
+
+    <string name="BY">Belarus</string>
+
+    <string name="BG">Bulgaria</string>
+
+    <string name="BJ">Benin</string>
+
+    <string name="BE">Belgia</string>
+
+    <string name="PE">Peru</string>
+
+    <string name="IS">Islandia</string>
+
+    <string name="BW">Botswana</string>
+
+    <string name="PL">Polandia</string>
+
+    <string name="BO">Bolivia</string>
+
+    <string name="BZ">Belize</string>
+
+    <string name="BF">Burkina Faso</string>
+
+    <string name="BI">Burundi</string>
+
+    <string name="PT">Portugal</string>
+
+    <string name="KP">Korea utara</string>
+
+    <string name="DK">Denmark</string>
+
+    <string name="DE">Jerman</string>
+
+    <string name="TG">Togo</string>
+
+    <string name="JP">Jepang</string>
+
+    <string name="SE">Swedia</string>
+
+    <string name="CH">Swiss</string>
+
+    <string name="EC">Ekuador</string>
+
+    <string name="RU">Rusia</string>
+
+    <string name="SV">Selvador</string>
+
+    <string name="SL">Sierra Leone</string>
+
+    <string name="SN">Senegal</string>
+
+    <string name="CY">Siprus</string>
+
+    <string name="SC">Seychelles</string>
+
+    <string name="SA">Arab Saudi</string>
+
+    <string name="ST">Sao Tome dan Prncipe</string>
+
+    <string name="SM">San Marino</string>
+
+    <string name="LK">Sri Lanka</string>
+
+    <string name="SK">Slowakia</string>
+
+    <string name="SI">Slovenia</string>
+
+    <string name="SZ">Swaziland</string>
+
+    <string name="SD">Sudan</string>
+
+    <string name="SR">Suriname</string>
+
+    <string name="SB">Kepulauan Solomon</string>
+
+    <string name="SO">Somalia</string>
+
+    <string name="FR">Prancis</string>
+
+    <string name="PF">Polinesia Prancis</string>
+
+    <string name="GF">Guyana Prancis</string>
+
+    <string name="FJ">Fiji</string>
+
+    <string name="PH">Filipina</string>
+
+    <string name="FI">Finlandia</string>
+
+    <string name="TJ">Tajikistan</string>
+
+    <string name="TH">Thailand</string>
+
+    <string name="TW">Taiwan(China)</string>
+
+    <string name="TZ">Tanzania</string>
+
+    <string name="TO">Tonga</string>
+
+    <string name="TR">Turki</string>
+
+    <string name="TM">Turkmenistan</string>
+
+    <string name="TN">Tunisia</string>
+
+    <!--Login globalization ends-->
+
+
+</resources>
