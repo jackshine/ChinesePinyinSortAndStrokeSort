@@ -258,8 +258,8 @@ public class PinyinUtil {
     }
 
     public static void main(String[] args) {
-        System.out.println(PinyinUtil.stringArrayToString(getHeadByString("我的心肝宝贝"), "-"));
-        System.out.println(PinyinUtil.hanziToPinyin("我的心肝宝贝"));
+        System.out.println(PinyinUtil.stringArrayToString(getHeadByString("欧阳鹏"), "-"));
+        System.out.println(PinyinUtil.hanziToPinyin("欧阳鹏"));
     }
 
 }  

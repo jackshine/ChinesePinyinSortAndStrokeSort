@@ -6,7 +6,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.oyp.sort.utils.stroke.bean.Stroke;
-import com.oyp.sort.utils.stroke.bean.StrokeMap;
+
+import java.util.HashMap;
 
 
 /**
@@ -17,11 +18,11 @@ public class StrokeUtils {
 
     private final static StrokeUtils factory = new StrokeUtils();
 
-    private static StrokeMap mapper;
+    private static HashMap<String, Stroke> mapper;
 
     public static StrokeUtils newInstance(Context context) {
         if (mapper == null) {
-            mapper = new StrokeMap();
+            mapper = new HashMap<String, Stroke>();
             //读取数据库
             StrokeDataBaseHelper myDbHelper = new StrokeDataBaseHelper(context);
             SQLiteDatabase db = null;
