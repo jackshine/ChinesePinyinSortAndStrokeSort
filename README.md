@@ -1,6 +1,9 @@
 # ChinesePinyinSortAndStrokeSort
 Android中文拼音排序以及中文笔划排序和英文排序，实现类似微信登录选择国家地区列表的功能
 
+博客介绍地址：https://blog.csdn.net/qq446282412/article/details/84109727
+
+
 # 一、需求描述
 最近要做一个类似微信的，在登录界面选择国家地区的功能，微信有中文汉字笔画排序以及中文拼音排序等几种方式，如下所示：
 
@@ -51,6 +54,17 @@ Android中文拼音排序以及中文笔划排序和英文排序，实现类似�
 
 ### 3.2.1 项目结构
 现在将这部分代码抽取出来，做了一个demo。项目结构如下所示：采用策略模式，分别有EnglishSortStrategy、PinyinSortStrategy、StrokeSortStrategy三种策略，分别表示英文排序策略、拼音排序策略、汉字笔画排序策略。
+
+
++ 拼音排序
+通过pin4j工具类将汉字转换为拼音，然后按照拼音的字母进行排序。
+
++ 笔画排序
+通过查找汉字笔画数据库，将每个汉字对应的笔画数、汉字、汉字对应的编码映射到map中，然后通过查询map找到每个汉字的笔画，最终按照笔画数目进行排序。
+
++ 英文排序
+直接通过英文的字母顺序进行排序即可。
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20181115194237291.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxNDQ2MjgyNDEy,size_16,color_FFFFFF,t_70)
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20181116142022119.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxNDQ2MjgyNDEy,size_16,color_FFFFFF,t_70)
@@ -60,6 +74,8 @@ Android中文拼音排序以及中文笔划排序和英文排序，实现类似�
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20181116142255571.png)
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20181116142323458.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxNDQ2MjgyNDEy,size_16,color_FFFFFF,t_70)
+
+
 
 ISortStrategy.java 排序策略接口
 ```
@@ -564,10 +580,29 @@ public class StrokeSortStrategy implements ISortStrategy {
 
 ```
 
+### 3.2.2 使用策略
+
++ 初始化排序策略，根据语言自动切换不同的排序策略
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20181116212740745.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxNDQ2MjgyNDEy,size_16,color_FFFFFF,t_70)
+
++ 使用排序策略
+使用策略主要是在两个地方，
++ 初始化数据的时候，使用不同排序策略，生成不同的数据
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20181116213110661.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxNDQ2MjgyNDEy,size_16,color_FFFFFF,t_70)
+
++ 数据排序的时候，使用不同策略对数据源进行排序
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20181116213007778.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxNDQ2MjgyNDEy,size_16,color_FFFFFF,t_70)
+
+
++ Adapter展示item标题的时候，根据不同策略展示不同的标题
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20181116213336549.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxNDQ2MjgyNDEy,size_16,color_FFFFFF,t_70)
+
++ Adapter做逻辑判断位置的时候，不同的策略返回不同的位置
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20181116213444462.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxNDQ2MjgyNDEy,size_16,color_FFFFFF,t_70)
 
 
 
-### 3.2.2 运行效果
+### 3.2.3 运行效果
 + 简体中文：拼音排序
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20181115194733537.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxNDQ2MjgyNDEy,size_16,color_FFFFFF,t_70)
 
