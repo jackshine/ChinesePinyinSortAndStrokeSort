@@ -1,6 +1,5 @@
 # ChinesePinyinSortAndStrokeSort
 Android中文拼音排序以及中文笔划排序和英文排序，实现类似微信登录选择国家地区列表的功能
-
 # 一、需求描述
 最近要做一个类似微信的，在登录界面选择国家地区的功能，微信有中文汉字笔画排序以及中文拼音排序等几种方式，如下所示：
 
@@ -52,6 +51,10 @@ Android中文拼音排序以及中文笔划排序和英文排序，实现类似�
 ### 3.2.1 项目结构
 现在将这部分代码抽取出来，做了一个demo。项目结构如下所示：采用策略模式，分别有EnglishSortStrategy、PinyinSortStrategy、StrokeSortStrategy三种策略，分别表示英文排序策略、拼音排序策略、汉字笔画排序策略。
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20181115194237291.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxNDQ2MjgyNDEy,size_16,color_FFFFFF,t_70)
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20181116142022119.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxNDQ2MjgyNDEy,size_16,color_FFFFFF,t_70)
+
+
 
 
 ### 3.2.2 运行效果
