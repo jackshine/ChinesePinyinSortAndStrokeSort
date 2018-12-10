@@ -26,7 +26,7 @@ public class LocalFileUtils {
     public final static String getStringFormAsset(Context context, String str) {
         BufferedReader in = null;
         try {
-            in = new BufferedReader(new InputStreamReader(context.getAssets().open(str)));
+            in = new BufferedReader(new InputStreamReader(context.getAssets().open(str),"utf-8"));
             String line;
             StringBuilder buffer = new StringBuilder();
             while ((line = in.readLine()) != null) {
