@@ -28,10 +28,6 @@ public class StrokeUtils {
 
     private final static StrokeUtils factory = new StrokeUtils();
 
-    public static HashMap<String, Stroke> getMapper() {
-        return mapper;
-    }
-
     private static HashMap<String, Stroke> mapper;
 
     public static StrokeUtils newInstance(Context context) {
