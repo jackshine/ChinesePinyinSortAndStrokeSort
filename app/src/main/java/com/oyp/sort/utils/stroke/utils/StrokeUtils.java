@@ -1,12 +1,21 @@
 package com.oyp.sort.utils.stroke.utils;
 
+
 import android.content.Context;
+
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Environment;
+
 import android.util.Log;
 
+import com.oyp.sort.utils.JSONUtil;
 import com.oyp.sort.utils.stroke.bean.Stroke;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.util.HashMap;
 
 
@@ -17,6 +26,10 @@ public class StrokeUtils {
     private static final String TAG = "StrokeUtils";
 
     private final static StrokeUtils factory = new StrokeUtils();
+
+    public static HashMap<String, Stroke> getMapper() {
+        return mapper;
+    }
 
     private static HashMap<String, Stroke> mapper;
 
@@ -48,7 +61,7 @@ public class StrokeUtils {
                     mapper.put(codePointAt, stroke);
                 }
             } catch (Exception e) {
-                Log.d(TAG, "ios = " + Log.getStackTraceString(e));
+                Log.e(TAG, "ios = " + Log.getStackTraceString(e));
             } finally {
                 //关闭cursor
                 if (cursor != null) {
@@ -59,6 +72,29 @@ public class StrokeUtils {
                     db.close();
                 }
             }
+        }
+
+        try {
+            File file = new File(Environment.getExternalStorageDirectory(), "stroke.json");
+            Log.d(TAG, "file.exists():" + file.exists() + " file.getAbsolutePath():" + file.getAbsolutePath());
+            if (!file.getParentFile().exists()) { // 如果父目录不存在，创建父目录
+                file.getParentFile().mkdirs();
+            }
+            if (file.exists()) { // 如果已存在,删除旧文件
+                file.delete();
+            }
+            file.createNewFile();
+
+            //mapper 转 Json
+            String mapperJson = JSONUtil.toJSON(mapper);
+
+            // 将格式化后的字符串写入文件
+            Writer write = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
+            write.write(mapperJson);
+            write.flush();
+            write.close();
+        } catch (Exception e) {
+            Log.e(TAG, "ios = " + Log.getStackTraceString(e));
         }
         return factory;
     }
