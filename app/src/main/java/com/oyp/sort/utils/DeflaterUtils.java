@@ -9,7 +9,7 @@ import java.util.zip.Deflater;
 import java.util.zip.Inflater;
 
 /**
- * DeflaterUtils 压缩字符串
+ * Deflater压缩解压字符串并使用Base64进行编码工具类
  */
 public class DeflaterUtils {
     /**
