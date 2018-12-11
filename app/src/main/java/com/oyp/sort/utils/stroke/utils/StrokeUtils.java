@@ -51,12 +51,12 @@ public class StrokeUtils {
 //            String strokeJson = LocalFileUtils.getStringFormAsset(context, "stroke.json");
 //            mapper = JSONUtil.toCollection(strokeJson, HashMap.class, String.class, Stroke.class);
 //            // 使用 Deflater  加密
-//            String deFlaterStrokeJson = DeflaterUtils.zipString(strokeJson);
+//            String deFlaterStrokeJson = DeflaterUtils.zipString(strokeJson,CHARSET_NAME);
 //            writeFile(deFlaterStrokeJson,"deFlaterStrokeJson.json");
 
             //使用 Inflater 解密
             String deFlaterStrokeJson = LocalFileUtils.getStringFormAsset(context, "deFlaterStrokeJson.json");
-            String strokeJson = DeflaterUtils.unzipString(deFlaterStrokeJson);
+            String strokeJson = DeflaterUtils.unzipString(deFlaterStrokeJson,CHARSET_NAME);
             mapper = JSONUtil.toCollection(strokeJson, HashMap.class, String.class, Stroke.class);
         }
         return factory;

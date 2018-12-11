@@ -4,6 +4,7 @@ import android.support.annotation.Nullable;
 import android.util.Base64;
 
 import java.io.ByteArrayOutputStream;
+import java.nio.charset.Charset;
 import java.util.zip.DataFormatException;
 import java.util.zip.Deflater;
 import java.util.zip.Inflater;
@@ -15,7 +16,7 @@ public class DeflaterUtils {
     /**
      * 压缩
      */
-    public static String zipString(String unzipString) {
+    public static String zipString(String unzipString,String encoding) {
         /**
          *     https://www.yiibai.com/javazip/javazip_deflater.html#article-start
          *     0 ~ 9 压缩等级 低到高
@@ -34,7 +35,7 @@ public class DeflaterUtils {
         //使用指定的压缩级别创建一个新的压缩器。
         Deflater deflater = new Deflater(Deflater.BEST_COMPRESSION);
         //设置压缩输入数据。
-        deflater.setInput(unzipString.getBytes());
+        deflater.setInput(unzipString.getBytes(Charset.forName(encoding)));
         //当被调用时，表示压缩应该以输入缓冲区的当前内容结束。
         deflater.finish();
 
@@ -55,7 +56,7 @@ public class DeflaterUtils {
      * 解压缩
      */
     @Nullable
-    public static String unzipString(String zipString) {
+    public static String unzipString(String zipString, String encoding) {
         byte[] decode = Base64.decode(zipString, Base64.NO_PADDING);
         //创建一个新的解压缩器  https://www.yiibai.com/javazip/javazip_inflater.html
         Inflater inflater = new Inflater();
@@ -79,6 +80,6 @@ public class DeflaterUtils {
             inflater.end();
         }
 
-        return outputStream.toString();
+        return  new String(outputStream.toByteArray(), Charset.forName(encoding));
     }
 }
