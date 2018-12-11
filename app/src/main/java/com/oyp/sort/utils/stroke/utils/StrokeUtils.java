@@ -33,6 +33,20 @@ public class StrokeUtils {
 
     public static StrokeUtils newInstance(Context context)  {
         if (mapper == null) {
+            //原始文件   stroke.json
+//            String strokeJson = LocalFileUtils.getStringFormAsset(context, "stroke.json");
+//            mapper = JSONUtil.toCollection(strokeJson, HashMap.class, String.class, Stroke.class);
+//            // 使用 GZIP  压缩
+//            String gzipStrokeJson = GzipUtil.compress(strokeJson,CHARSET_NAME);
+//            writeFile(gzipStrokeJson,"gzipStrokeJson.json");
+
+//            //使用 GZIP 解压
+//            String gzipStrokeJson = LocalFileUtils.getStringFormAsset(context, "gzipStrokeJson.json");
+//            String strokeJson = GzipUtil.uncompress(gzipStrokeJson,CHARSET_NAME);
+//            mapper = JSONUtil.toCollection(strokeJson, HashMap.class, String.class, Stroke.class);
+
+            /////////////////////////////////////////////////////////////////////////////////////////
+
 //            //原始文件   stroke.json
 //            String strokeJson = LocalFileUtils.getStringFormAsset(context, "stroke.json");
 //            mapper = JSONUtil.toCollection(strokeJson, HashMap.class, String.class, Stroke.class);
@@ -40,23 +54,9 @@ public class StrokeUtils {
 //            String deFlaterStrokeJson = DeflaterUtils.zipString(strokeJson);
 //            writeFile(deFlaterStrokeJson,"deFlaterStrokeJson.json");
 
-//            //使用 Inflater 解密
-//            String deFlaterStrokeJson = LocalFileUtils.getStringFormAsset(context, "deFlaterStrokeJson.json");
-//            String strokeJson = DeflaterUtils.unzipString(deFlaterStrokeJson);
-//            mapper = JSONUtil.toCollection(strokeJson, HashMap.class, String.class, Stroke.class);
-
-
-              //原始文件   stroke.json
-//            String strokeJson = LocalFileUtils.getStringFormAsset(context, "stroke.json");
-//            mapper = JSONUtil.toCollection(strokeJson, HashMap.class, String.class, Stroke.class);
-//            // 使用 GZIP  压缩
-//            String gzipStrokeJson = GzipUtil.compress(strokeJson,CHARSET_NAME);
-//            writeFile(gzipStrokeJson,"gzipStrokeJson.json");
-
-
-          //使用 GZIP 解压
-            String gzipStrokeJson = LocalFileUtils.getStringFormAsset(context, "gzipStrokeJson.json");
-            String strokeJson = GzipUtil.uncompress(gzipStrokeJson,CHARSET_NAME);
+            //使用 Inflater 解密
+            String deFlaterStrokeJson = LocalFileUtils.getStringFormAsset(context, "deFlaterStrokeJson.json");
+            String strokeJson = DeflaterUtils.unzipString(deFlaterStrokeJson);
             mapper = JSONUtil.toCollection(strokeJson, HashMap.class, String.class, Stroke.class);
         }
         return factory;
