@@ -9,7 +9,7 @@ import java.util.zip.Deflater;
 import java.util.zip.Inflater;
 
 /**
- * Gzip 压缩字符串
+ * DeflaterUtils 压缩字符串
  */
 public class DeflaterUtils {
     /**

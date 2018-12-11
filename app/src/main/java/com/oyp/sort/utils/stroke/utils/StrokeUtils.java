@@ -34,33 +34,10 @@ public class StrokeUtils {
         if (mapper == null) {
 //            //原始文件   stroke.json
 //            String strokeJson = LocalFileUtils.getStringFormAsset(context, "stroke.json");
-//            //使用Gzip压缩后的文件 gzipStroke.json
-//            try {
-//                String gzipStrokeJson = GZIP.compress(strokeJson);
-//                writeFile(gzipStrokeJson, "gzipStroke.json");
-//            } catch (IOException e) {
-//               Log.e(TAG, "e = " + Log.getStackTraceString(e));
-//            }
-
-
-//            //读取gzip压缩后的文件，然后还原
-//            String gzipStrokeJson = LocalFileUtils.getStringFormAsset(context, "gzipStroke.json");
-//            String strokeJson = null;
-//            try {
-//                strokeJson = GZIP.unCompress(gzipStrokeJson);
-//            } catch (IOException e) {
-//                Log.e(TAG, "e = " + Log.getStackTraceString(e));
-//            }
-
-
-
-            //原始文件   stroke.json
-//            String strokeJson = LocalFileUtils.getStringFormAsset(context, "stroke.json");
 //            mapper = JSONUtil.toCollection(strokeJson, HashMap.class, String.class, Stroke.class);
 //            // 使用 Deflater  加密
 //            String deFlaterStrokeJson = DeflaterUtils.zipString(strokeJson);
 //            writeFile(deFlaterStrokeJson,"deFlaterStrokeJson.json");
-
 
             //使用 Inflater 解密
             String deFlaterStrokeJson = LocalFileUtils.getStringFormAsset(context, "deFlaterStrokeJson.json");
