@@ -29,7 +29,7 @@ public class GZIP {
         gzip.write(str.getBytes("utf-8"));  //因为后台默认字符集有可能是GBK字符集，所以此处需指定一个字符集
         gzip.close();
         // 使用指定的 charsetName，通过解码字节将缓冲区内容转换为字符串
-        return out.toString("ISO-8859-1");
+        return out.toString("utf-8");
     }
 
     /**
@@ -46,7 +46,7 @@ public class GZIP {
         // 创建一个新的输出流
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         // 创建一个 ByteArrayInputStream，使用 buf 作为其缓冲区数组
-        ByteArrayInputStream in = new ByteArrayInputStream(str.getBytes("ISO-8859-1"));
+        ByteArrayInputStream in = new ByteArrayInputStream(str.getBytes("utf-8"));
         // 使用默认缓冲区大小创建新的输入流
         GZIPInputStream gzip = new GZIPInputStream(in);
         byte[] buffer = new byte[256];

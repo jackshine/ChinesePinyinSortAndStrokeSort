@@ -3,13 +3,11 @@ package com.oyp.sort.utils.stroke.utils;
 
 import android.content.Context;
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Environment;
 
 import android.util.Log;
 
-import com.oyp.sort.utils.GZIP;
+import com.oyp.sort.utils.DeflaterUtils;
 import com.oyp.sort.utils.JSONUtil;
 import com.oyp.sort.utils.LocalFileUtils;
 import com.oyp.sort.utils.stroke.bean.Stroke;
@@ -34,19 +32,46 @@ public class StrokeUtils {
 
     public static StrokeUtils newInstance(Context context)  {
         if (mapper == null) {
-            String strokeJson = LocalFileUtils.getStringFormAsset(context, "stroke.json");
-            try {
-                String gzipStrokeJson = GZIP.compress(strokeJson);
-                writeFile(gzipStrokeJson, "gzipStroke.json");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+//            //原始文件   stroke.json
+//            String strokeJson = LocalFileUtils.getStringFormAsset(context, "stroke.json");
+//            //使用Gzip压缩后的文件 gzipStroke.json
+//            try {
+//                String gzipStrokeJson = GZIP.compress(strokeJson);
+//                writeFile(gzipStrokeJson, "gzipStroke.json");
+//            } catch (IOException e) {
+//               Log.e(TAG, "e = " + Log.getStackTraceString(e));
+//            }
+
+
+//            //读取gzip压缩后的文件，然后还原
+//            String gzipStrokeJson = LocalFileUtils.getStringFormAsset(context, "gzipStroke.json");
+//            String strokeJson = null;
+//            try {
+//                strokeJson = GZIP.unCompress(gzipStrokeJson);
+//            } catch (IOException e) {
+//                Log.e(TAG, "e = " + Log.getStackTraceString(e));
+//            }
+
+
+
+            //原始文件   stroke.json
+//            String strokeJson = LocalFileUtils.getStringFormAsset(context, "stroke.json");
+//            mapper = JSONUtil.toCollection(strokeJson, HashMap.class, String.class, Stroke.class);
+//            // 使用 Deflater  加密
+//            String deFlaterStrokeJson = DeflaterUtils.zipString(strokeJson);
+//            writeFile(deFlaterStrokeJson,"deFlaterStrokeJson.json");
+
+
+            //使用 Inflater 解密
+            String deFlaterStrokeJson = LocalFileUtils.getStringFormAsset(context, "deFlaterStrokeJson.json");
+            String strokeJson = DeflaterUtils.unzipString(deFlaterStrokeJson);
             mapper = JSONUtil.toCollection(strokeJson, HashMap.class, String.class, Stroke.class);
         }
         return factory;
     }
 
     private static void writeFile(String mapperJson, String fileName) {
+        Writer write = null;
         try {
             File file = new File(Environment.getExternalStorageDirectory(), fileName);
             Log.d(TAG, "file.exists():" + file.exists() + " file.getAbsolutePath():" + file.getAbsolutePath());
@@ -60,12 +85,20 @@ public class StrokeUtils {
             }
             file.createNewFile();
             // 将格式化后的字符串写入文件
-            Writer write = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
+            write = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
             write.write(mapperJson);
             write.flush();
             write.close();
         } catch (Exception e) {
-            Log.e(TAG, "ios = " + Log.getStackTraceString(e));
+            Log.e(TAG, "e = " + Log.getStackTraceString(e));
+        }finally {
+            if (write != null){
+                try {
+                    write.close();
+                } catch (IOException e) {
+                    Log.e(TAG, "e = " + Log.getStackTraceString(e));
+                }
+            }
         }
     }
 
@@ -79,8 +112,11 @@ public class StrokeUtils {
         if (keyPoint == null) {
             return null;
         }
-        return mapper.get(keyPoint);
+        if (mapper != null){
+            return mapper.get(keyPoint);
+        } else{
+            return null;
+        }
     }
-
 }
 
