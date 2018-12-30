@@ -1,11 +1,12 @@
 package com.oyp.sort.strategy.impl;
 
 import android.content.Context;
+import android.util.Log;
 
+import com.github.promeg.pinyinhelper.Pinyin;
 import com.oyp.sort.adapter.CountryOrRegionAdapter;
 import com.oyp.sort.bean.CountryOrRegion;
 import com.oyp.sort.strategy.ISortStrategy;
-import com.oyp.sort.utils.pinyin.CharacterParser;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -130,7 +131,11 @@ public class PinyinSortStrategy implements ISortStrategy {
      */
     @Override
     public String getPinyinOrEnglish(CountryOrRegion countryOrRegion) {
-        return CharacterParser.getInstance().getSplitSelling(countryOrRegion.getName());
+//        return CharacterParser.getInstance().getSplitSelling(countryOrRegion.getName());
+        String name = countryOrRegion.getName();
+        String pinyin = Pinyin.toPinyin(name, "");
+        Log.d("getPinyinOrEnglish" ,"name = " + name +" ,pinyin = " + pinyin);
+        return pinyin;
     }
 
     /**

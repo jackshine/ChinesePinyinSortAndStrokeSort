@@ -14,6 +14,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 
+import com.github.promeg.pinyinhelper.Pinyin;
+import com.github.promeg.pinyinhelper.PinyinMapDict;
 import com.oyp.sort.adapter.CountryOrRegionAdapter;
 import com.oyp.sort.bean.CountryOrRegion;
 import com.oyp.sort.strategy.impl.EnglishSortStrategy;
@@ -26,7 +28,9 @@ import com.oyp.sort.utils.SystemLanguageUtil;
 import com.oyp.sort.widget.SideBar;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
@@ -70,6 +74,17 @@ public class ChooseCountryOrRegionActivity extends Activity {
         setContentView(R.layout.activity_listview_sort_main);
 
         verifyStoragePermissions(this);
+
+        // 添加自定义词典   https://github.com/promeG/TinyPinyin
+        Pinyin.init(Pinyin.newConfig()
+                .with(new PinyinMapDict() {
+                    @Override
+                    public Map<String, String[]> mapping() {
+                        HashMap<String, String[]> map = new HashMap<String, String[]>();
+                        map.put("秘鲁",  new String[]{"BI", "LU"});
+                        return map;
+                    }
+                }));
 
         initView();
         initData();
