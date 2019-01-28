@@ -22,7 +22,7 @@ public class EnglishSortStrategy extends PinyinSortStrategy {
     public String getPinyinOrEnglish(CountryOrRegion countryOrRegion) {
         //获取其他国家的英文名：  国家码转换成国家英文名
         String countryCode = countryOrRegion.getCountryCode();
-        String countryEnglishName = OtherLanguageCharacterParser.getInstance().getMapData(countryCode);
+        String countryEnglishName = OtherLanguageCharacterParser.getInstance().getEnglishName(countryCode);
         Log.d(TAG,"CountryOrRegion countryCode : " + countryCode + " ,countryEnglishName:" + countryEnglishName);
         return countryEnglishName;
     }

@@ -1,6 +1,10 @@
 package com.oyp.sort.utils.pinyin;
 
-import java.util.HashMap;
+
+import android.util.Log;
+
+import com.oyp.sort.MyApplication;
+import com.oyp.sort.utils.AreaCodeUtils;
 
 /**
  * 除了中国之外的国家列表按英文单词排序.
@@ -8,185 +12,18 @@ import java.util.HashMap;
 public class OtherLanguageCharacterParser {
 
     private static OtherLanguageCharacterParser hkCharacterParser = new OtherLanguageCharacterParser();
-    private HashMap<String, String> countryMap = new HashMap<>();
-
-    private OtherLanguageCharacterParser() {
-        countryMap.put("GA", "Gabon");
-        countryMap.put("GM", "Gambia");
-        countryMap.put("GE", "Georgia");
-        countryMap.put("DE", "Germany");
-        countryMap.put("GH", "Ghana");
-        countryMap.put("GI", "Gibraltar");
-        countryMap.put("GR", "Greece");
-        countryMap.put("GT", "Guatemala");
-        countryMap.put("GN", "Guinea");
-        countryMap.put("GY", "Guyana");
-        countryMap.put("UG", "Uganda");
-        countryMap.put("UA", "Ukraine");
-        countryMap.put("AE", "United Arab Emirates");
-        countryMap.put("GB", "United Kingdom");
-        countryMap.put("US", "United States");
-        countryMap.put("UY", "Uruguay");
-        countryMap.put("UZ", "Uzbekistan");
-        countryMap.put("HT", "Haiti");
-        countryMap.put("HN", "Honduras");
-        countryMap.put("HK", "Hong Kong(China)");
-        countryMap.put("HU", "Hungary");
-        countryMap.put("VE", "Venezuela");
-        countryMap.put("VN", "Vietnam");
-        countryMap.put("IS", "Iceland");
-        countryMap.put("IN", "India");
-        countryMap.put("ID", "Indonesia");
-        countryMap.put("IR", "Iran");
-        countryMap.put("IQ", "Iraq");
-        countryMap.put("IE", "Ireland");
-        countryMap.put("IL", "Israel");
-        countryMap.put("IT", "Italy");
-        countryMap.put("JM", "Jamaica");
-        countryMap.put("JP", "Japan");
-        countryMap.put("JO", "Jordan");
-        countryMap.put("KZ", "Kazakhstan");
-        countryMap.put("KE", "Kenya");
-        countryMap.put("KW", "Kuwait");
-        countryMap.put("KG", "Kyrgyzstan");
-        countryMap.put("YE", "Yemen");
-        countryMap.put("LA", "Laos");
-        countryMap.put("LV", "Latvia");
-        countryMap.put("LB", "Lebanon");
-        countryMap.put("LS", "Lesotho");
-        countryMap.put("LR", "Liberia");
-        countryMap.put("LY", "Libya");
-        countryMap.put("LI", "Liechtenstein");
-        countryMap.put("LT", "Lithuania");
-        countryMap.put("LU", "Luxembourg");
-        countryMap.put("ZM", "Zambia");
-        countryMap.put("ZW", "Zimbabwe");
-        countryMap.put("MO", "Macau(China)");
-        countryMap.put("MG", "Madagascar");
-        countryMap.put("MW", "Malawi");
-        countryMap.put("MY", "Malaysia");
-        countryMap.put("MV", "Maldives");
-        countryMap.put("ML", "Mali");
-        countryMap.put("MT", "Malta");
-        countryMap.put("MU", "Mauritius");
-        countryMap.put("MX", "Mexico");
-        countryMap.put("MD", "Moldova");
-        countryMap.put("MC", "Monaco");
-        countryMap.put("MN", "Mongolia");
-        countryMap.put("MA", "Morocco");
-        countryMap.put("MZ", "Mozambique");
-        countryMap.put("MM", "Myanmar(Burma)");
-        countryMap.put("NA", "Namibia");
-        countryMap.put("NR", "Nauru");
-        countryMap.put("NP", "Nepal");
-        countryMap.put("NL", "Netherlands");
-        countryMap.put("NZ", "New Zealand");
-        countryMap.put("NI", "Nicaragua");
-        countryMap.put("NE", "Niger");
-        countryMap.put("NG", "Nigeria");
-        countryMap.put("KP", "North Korea");
-        countryMap.put("NO", "Norway");
-        countryMap.put("AF", "Afghanistan");
-        countryMap.put("AL", "Albania");
-        countryMap.put("DZ", "Algeria");
-        countryMap.put("AD", "Andorra");
-        countryMap.put("AO", "Angola");
-        countryMap.put("AR", "Argentina");
-        countryMap.put("AM", "Armenia");
-        countryMap.put("AU", "Australia");
-        countryMap.put("AT", "Austria");
-        countryMap.put("AZ", "Azerbaijan");
-        countryMap.put("OM", "Oman");
-        countryMap.put("BS", "Bahamas");
-        countryMap.put("BH", "Bahrain");
-        countryMap.put("BD", "Bangladesh");
-        countryMap.put("BY", "Belarus");
-        countryMap.put("BE", "Belgium");
-        countryMap.put("BZ", "Belize");
-        countryMap.put("BJ", "Benin");
-        countryMap.put("BO", "Bolivia");
-        countryMap.put("BW", "Botswana");
-        countryMap.put("BR", "Brazil");
-        countryMap.put("BN", "Brunei");
-        countryMap.put("BG", "Bulgaria");
-        countryMap.put("BF", "Burkina Faso");
-        countryMap.put("BI", "Burundi");
-        countryMap.put("PK", "Pakistan");
-        countryMap.put("PA", "Panama");
-        countryMap.put("PH", "Philippines");
-        countryMap.put("PL", "Poland");
-        countryMap.put("PG", "Papua New");
-        countryMap.put("PY", "Paraguay");
-        countryMap.put("PE", "Peru");
-        countryMap.put("PT", "Portugal");
-        countryMap.put("KH", "Cambodia");
-        countryMap.put("CM", "Cameroon");
-        countryMap.put("CA", "Canada");
-        countryMap.put("CF", "Central African");
-        countryMap.put("TD", "Chad");
-        countryMap.put("CL", "Chile");
-        countryMap.put("CN", "China");
-        countryMap.put("CO", "Colombia");
-        countryMap.put("CG", "Congo - Brazzaville");
-        countryMap.put("CK", "Cook Islands");
-        countryMap.put("CR", "Costa Rica");
-        countryMap.put("CU", "Cuba");
-        countryMap.put("CY", "Cyprus");
-        countryMap.put("CZ", "Czechia");
-        countryMap.put("QA", "Qatar");
-        countryMap.put("DK", "Denmark");
-        countryMap.put("DJ", "Djibouti");
-        countryMap.put("RO", "Romania");
-        countryMap.put("RU", "Russia");
-        countryMap.put("EC", "Ecuador");
-        countryMap.put("EG", "Egypt");
-        countryMap.put("SV", "El Salvador");
-        countryMap.put("EE", "Estonia");
-        countryMap.put("ET", "Ethiopia");
-        countryMap.put("SM", "San Marino");
-        countryMap.put("ST", "São Tomé & Príncipe");
-        countryMap.put("SA", "Saudi Arabia");
-        countryMap.put("SN", "Senegal");
-        countryMap.put("SC", "Seychelles");
-        countryMap.put("SL", "Sierra Leone");
-        countryMap.put("SG", "Singapore");
-        countryMap.put("SK", "Slovakia");
-        countryMap.put("SI", "Slovenia");
-        countryMap.put("SB", "Solomon Islands");
-        countryMap.put("SO", "Somalia");
-        countryMap.put("ZA", "South Africa");
-        countryMap.put("KR", "South Korea");
-        countryMap.put("ES", "Spain");
-        countryMap.put("LK", "Sri Lanka");
-        countryMap.put("SD", "Sudan");
-        countryMap.put("SR", "Suriname");
-        countryMap.put("SZ", "Swaziland");
-        countryMap.put("SE", "Sweden");
-        countryMap.put("CH", "Switzerland");
-        countryMap.put("SY", "Syria");
-        countryMap.put("FJ", "Fiji");
-        countryMap.put("FI", "Finland");
-        countryMap.put("FR", "France");
-        countryMap.put("GF", "French Guiana");
-        countryMap.put("PF", "French Polynesia");
-        countryMap.put("TW", "Taiwan");
-        countryMap.put("TJ", "Tajikistan");
-        countryMap.put("TZ", "Tanzania");
-        countryMap.put("TH", "Thailand");
-        countryMap.put("TG", "Togo");
-        countryMap.put("TO", "Tonga");
-        countryMap.put("TN", "Tunisia");
-        countryMap.put("TR", "Turkey");
-        countryMap.put("TM", "Turkmenistan");
-    }
 
     public static OtherLanguageCharacterParser getInstance() {
         return hkCharacterParser;
     }
 
-    public String getMapData(String strCode) {
+    public String getEnglishName(String strCode) {
         String strResult = "";
-        strResult = countryMap.get(strCode);
+        // 将国家代码转换一下， 比如 CN  转为 SORT_CN
+        strCode = "SORT_" + strCode;
+        //获取到要显示的国家或地区的名称
+        strResult = AreaCodeUtils.getCountryNameByCountryCode(MyApplication.getContext(), strCode);
+        Log.d("OtherCharacterParser", "strCode = " + strCode + " ,strResult:" + strResult);
         return strResult;
     }
 
